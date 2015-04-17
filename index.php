@@ -10,8 +10,7 @@
 			<ul>
 				<?php require ("includes/connect.php") ?>
 			</ul>		
-		</div>
-		
+		</div>	
 		<form class="add-new-task" autocomplete="off">
 			<input type="text" name="new-task" placeholder="Add new item..."/>
 		</form>
@@ -34,6 +33,17 @@
 			return false;
 		});
 	}
+
+	$('.delete-button').click(function(){
+		var current_element = $(this);
+		var task_id = $(this).attr('id');
+
+		$.post('includes/delete-task.php', {id: task_id}, function(){
+			current_element.parent().fadeout("fast", function(){
+				$(this).remove();
+			});
+		});
+	});
 </script>
 
 </html>
