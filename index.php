@@ -27,7 +27,7 @@
 
 			if (new_task != '') {
 				$.post('includes/add-task.php', { task: new_task}, function(date){
-					$(('add-new-task input[name=new-task]').val();
+					$('add-new-task input[name=new-task]').val();
 						$(date).appendTo('task-list ul').hide().fadeIn();
 				});
 			}
